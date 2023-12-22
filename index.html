@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Vission Board</title>
-</head>
-<body>
-  <div class="sidenav">
-  <input type="text" class="search-input" placeholder="Search...">
-  <button class="search-button">Search</button>
-  <ul class="previous-searches">
-    <li>Previous Search 1</li>
-    <li>Previous Search 2</li>
-    <li>Previous Search 3</li>
-  </ul>
-</div>
-</body>
-</html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>My Vision Board</title>
+  </head>
+  <body>
+    <header class="header"></header>
+    <div>
+      <search>
+        <input type="text" class="search-input" placeholder="Search...">
+        <button class="search-button">Search</button>
+      </search>
+      <results class="results"></results>
+    </div>
+    <div>
+      <title class="title">Title Placeholder</title>
+      <div class="vision-board"></div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+  </body>
