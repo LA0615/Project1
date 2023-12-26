@@ -33,3 +33,4 @@ function displayQuotesData(quotesData) {
 
   console.log("Quotes displayed:", quotesData);
 }
+
