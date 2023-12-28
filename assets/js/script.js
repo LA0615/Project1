@@ -22,7 +22,8 @@ function getQuotes() {
    
    // Function to display quotes
    function displayQuotesData(quotesData) {
-    var quotesDisplay = document.getElementById("quotesDisplay");
+    var quotesDisplay = document.querySelector(".quotesDisplay");
+   // var quotesDisplay = document.getElementById("quotesDisplay");
     quotesDisplay.innerHTML = "";
    
    
