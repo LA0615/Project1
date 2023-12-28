@@ -37,4 +37,6 @@ function getQuotes() {
    
     console.log("Quotes displayed:", quotesData);
    }
-   
+   // Add event listener to the getQuotes button
+var getQuotesButton = document.querySelector(".getQuotes");
+getQuotesButton.addEventListener("click", getQuotes);
