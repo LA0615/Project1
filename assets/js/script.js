@@ -41,3 +41,19 @@ function getQuotes() {
    // Add event listener to the getQuotes button
 var getQuotesButton = document.querySelector(".getQuotes");
 getQuotesButton.addEventListener("click", getQuotes);
+
+const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
+
+document.addEventListener("DOMContentLoaded", init);
+function init() {
+  var searchBtn = document.querySelector(".search-button");
+  searchBtn.addEventListener("click", ev => {
+    ev.preventDefault();
+      let url = `https://api.giphy.com/v1/stickers/search?api_key=${API_KEY}&limit=6&q=`;
+      let searchInput = document.querySelector(".search-input");
+      let str = searchInput.value.trim();
+      url = url.concat(str);
+      console.log(url);
+  })
+}
+
