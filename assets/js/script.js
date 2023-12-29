@@ -18,11 +18,10 @@ function getQuotes() {
     });
 }
 
-// Function to display quotes
+// Function to display Random quote
 function displayQuotesData(quotesData) {
   var quotesDisplay = document.querySelector(".quotesDisplay");
-  // var quotesDisplay = document.getElementById("quotesDisplay");
-  quotesDisplay.innerHTML = "";
+  quotesDisplay.innerHTML = "";  //clear existing content
 
   // Loop through the quotes and create elements for each quote
   for (var i = 0; i < quotesData.length; i++) {
