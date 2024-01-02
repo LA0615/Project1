@@ -11,35 +11,47 @@
     <title>My Vision Board</title>
   </head>
   <body>
-    <header class="header">
-      <button class="getQuotes">Click to Get Your Inspirational Quote!</button>
-    </header>
-    <div class="quotesDisplay results"></div>
 
+    <header class="header hero is-info">
+      <button class="button getQuotes">
+        Click to Get Your Inspirational Quote!
+      </button>
+      <div class="quotesDisplay hero-body"></div>
+    </header>
+    
+<div class="tile">
     <!-- Sidebar with search bars and giphy results -->
     <div>
-      <form>
-        <label for="vision-board-title">Create a Title for your Vision Board:</label><br>
-        <input type="text" class="vision-board-title" placeholder="Enter your title here"><br>
-        <label for="search-input">Search for a topic:</label><br>
-        <input type="text" class="search-input" placeholder="Search..." /><br>
-        <button class="search-button">Search</button>
+      <form class="box">
+        <label for="vision-board-title"
+          >Create a Title for your Vision Board:</label
+        ><br />
+        <input
+          type="text"
+          class="vision-board-title"
+          placeholder="Enter your title here"
+        /><br />
+        <label for="search-input">Search for a topic:</label><br />
+        <input type="text" class="search-input" placeholder="Search..." /><br />
+        <button class="button is-info search-button">Search</button>
       </form>
       <results class="results"></results>
     </div>
 
     <!-- Main vision board -->
-    <div>
+    <div class="vision-board">
       <div class="title">Title Placeholder</div>
-        <div class="grid-container">
-          <div class="grid-item">Item 1</div>
-          <div class="grid-item">Item 2</div>
-          <div class="grid-item">Item 3</div>
-          <div class="grid-item">Item 4</div>
-          <div class="grid-item">Item 5</div>
-          <div class="grid-item">Item 6</div>
-        </div>
+      <div class="grid-container">
+        <div class="grid-item">Item 1</div>
+        <div class="grid-item">Item 2</div>
+        <div class="grid-item">Item 3</div>
+        <div class="grid-item">Item 4</div>
+        <div class="grid-item">Item 5</div>
+        <div class="grid-item">Item 6</div>
+      </div>
     </div>
+
+  </div>
 
     <script src="./assets/js/script.js"></script>
   </body>

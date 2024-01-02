@@ -64,6 +64,7 @@ function init() {
         let fc = document.createElement("figcaption");
         img.src = content.data[i].images.downsized.url;
         img.alt = content.data[i].title;
+        fig.classList.add('fig');
         fc.textContent = content.data[0].title;
         fig.appendChild(img);
         fig.appendChild(fc);
