@@ -87,6 +87,5 @@ titleBtn.addEventListener("click", addTitle);
 function addTitle() {
   event.preventDefault();
   const title = titleInput.value;
-  console.log(title);
   titlePlaceholder.textContent = title;
 }
