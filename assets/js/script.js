@@ -1,46 +1,5 @@
 // Function to fetch quotes data
 function getQuotes() {
-<<<<<<< HEAD
-    const apiUrl = "https://type.fit/api/quotes";
-  
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        displayQuotesData(data);
-      })
-      .catch(function (error) {
-        console.error("Error fetching quotes data:", error);
-      });
-  }
-  
-  // Function to display Random quote
-  function displayQuotesData(quotesData) {
-    const quotesDisplay = document.querySelector(".quotesDisplay");
-    quotesDisplay.innerHTML = ""; //clear existing content
-  
-    // Randomly select a quote from the fetched data
-    const randomIndex = Math.floor(Math.random() * quotesData.length);
-    const selectedQuote = quotesData[randomIndex];
-  
-    // Create an element for the selected quote
-    const quoteElement = document.createElement("p");
-    quoteElement.textContent = selectedQuote.text;
-  
-    // Append the quote element to the quotes display
-    quotesDisplay.appendChild(quoteElement);
-    
-    console.log("Quotes displayed:", quotesData);
-  }
-  // Add event listener to the getQuotes button
-  let getQuotesButton = document.querySelector(".getQuotes");
-  getQuotesButton.addEventListener("click", getQuotes);
-=======
   const apiUrl = "https://type.fit/api/quotes";
 
   fetch(apiUrl)
@@ -80,7 +39,6 @@ function displayQuotesData(quotesData) {
 // Add event listener to the getQuotes button
 let getQuotesButton = document.querySelector(".getQuotes");
 getQuotesButton.addEventListener("click", getQuotes);
->>>>>>> main
 
 const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
 
