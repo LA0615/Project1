@@ -1,44 +1,44 @@
 // Function to fetch quotes data
 function getQuotes() {
-    const apiUrl = "https://type.fit/api/quotes";
-  
-    fetch(apiUrl)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        displayQuotesData(data);
-      })
-      .catch(function (error) {
-        console.error("Error fetching quotes data:", error);
-      });
-  }
-  
-  // Function to display Random quote
-  function displayQuotesData(quotesData) {
-    const quotesDisplay = document.querySelector(".quotesDisplay");
-    quotesDisplay.innerHTML = ""; //clear existing content
-  
-    // Randomly select a quote from the fetched data
-    const randomIndex = Math.floor(Math.random() * quotesData.length);
-    const selectedQuote = quotesData[randomIndex];
-  
-    // Create an element for the selected quote
-    const quoteElement = document.createElement("p");
-    quoteElement.textContent = selectedQuote.text;
-  
-    // Append the quote element to the quotes display
-    quotesDisplay.appendChild(quoteElement);
-    
-    console.log("Quotes displayed:", quotesData);
-  }
-  // Add event listener to the getQuotes button
-  let getQuotesButton = document.querySelector(".getQuotes");
-  getQuotesButton.addEventListener("click", getQuotes);
+  const apiUrl = "https://type.fit/api/quotes";
+
+  fetch(apiUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      displayQuotesData(data);
+    })
+    .catch(function (error) {
+      console.error("Error fetching quotes data:", error);
+    });
+}
+
+// Function to display Random quote
+function displayQuotesData(quotesData) {
+  const quotesDisplay = document.querySelector(".quotesDisplay");
+  quotesDisplay.innerHTML = ""; //clear existing content
+
+  // Randomly select a quote from the fetched data
+  const randomIndex = Math.floor(Math.random() * quotesData.length);
+  const selectedQuote = quotesData[randomIndex];
+
+  // Create an element for the selected quote
+  const quoteElement = document.createElement("p");
+  quoteElement.textContent = selectedQuote.text;
+
+  // Append the quote element to the quotes display
+  quotesDisplay.appendChild(quoteElement);
+
+  console.log("Quotes displayed:", quotesData);
+}
+// Add event listener to the getQuotes button
+let getQuotesButton = document.querySelector(".getQuotes");
+getQuotesButton.addEventListener("click", getQuotes);
 
 const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
 
@@ -55,24 +55,38 @@ function init() {
     fetch(url)
       .then((response) => response.json())
       .then((content) => {
-        for(var i = 0; i < content.data.length; i++) { 
-        //data pagination, meta
-        console.log(content.data);
-        console.log("META", content.meta);
-        let fig = document.createElement("figure");
-        let img = document.createElement("img");
-        let fc = document.createElement("figcaption");
-        img.src = content.data[i].images.downsized.url;
-        img.alt = content.data[i].title;
-        fig.classList.add('fig');
-        fc.textContent = content.data[0].title;
-        fig.appendChild(img);
-        fig.appendChild(fc);
-        let out = document.querySelector(".results");
-        out.insertAdjacentElement("afterbegin", fig);
-      }})
+        for (var i = 0; i < content.data.length; i++) {
+          //data pagination, meta
+          console.log(content.data);
+          console.log("META", content.meta);
+          let fig = document.createElement("figure");
+          let img = document.createElement("img");
+          let fc = document.createElement("figcaption");
+          img.src = content.data[i].images.downsized.url;
+          img.alt = content.data[i].title;
+          fc.textContent = content.data[0].title;
+          fig.appendChild(img);
+          fig.appendChild(fc);
+          let out = document.querySelector(".results");
+          out.insertAdjacentElement("afterbegin", fig);
+        }
+      })
       .catch((err) => {
         console.error(err);
       });
   });
+}
+
+
+const titleBtn = document.getElementById("title-button");
+const titlePlaceholder = document.getElementById("title-placeholder");
+const titleInput = document.querySelector(".vision-board-title");
+// Adds event listener to "add your title" button
+titleBtn.addEventListener("click", addTitle);
+// Function to add a title
+function addTitle() {
+  event.preventDefault();
+  const title = titleInput.value;
+  console.log(title);
+  titlePlaceholder.textContent = title;
 }

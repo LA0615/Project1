@@ -16,7 +16,7 @@
       <button class="button getQuotes">
         Click to Get Your Inspirational Quote!
       </button>
-      <div class="quotesDisplay hero-body"></div>
+      <div class="quotesDisplay hero-body title"></div>
     </header>
     
 <div class="tile">
@@ -24,13 +24,14 @@
     <div>
       <form class="box">
         <label for="vision-board-title"
-          >Create a Title for your Vision Board:</label
-        ><br />
+          >Create a Title for your Vision Board:</label><br>
+        
         <input
           type="text"
           class="vision-board-title"
           placeholder="Enter your title here"
         /><br />
+        <button class="button is-info" id="title-button">Add Your Title</button><br>
         <label for="search-input">Search for a topic:</label><br />
         <input type="text" class="search-input" placeholder="Search..." /><br />
         <button class="button is-info search-button">Search</button>
@@ -40,7 +41,7 @@
 
     <!-- Main vision board -->
     <div class="vision-board">
-      <div class="title">Title Placeholder</div>
+      <div id="title-placeholder"></div>
       <div class="grid-container">
         <div class="grid-item">Item 1</div>
         <div class="grid-item">Item 2</div>

@@ -1,5 +1,5 @@
 .quotesDisplay {
-
+justify-content: center;
 }
 
 .getQuotes {
@@ -16,6 +16,7 @@
   .grid-item {
     background-color: #f1c5c5; /* Adjust the background color as needed */
     padding: 10px; /* Adjust the padding as needed */
+    
   }
 
 .box {
