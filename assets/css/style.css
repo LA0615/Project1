@@ -1,3 +1,10 @@
+
+
+.getQuotes {
+  width: fit-content;
+  
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
@@ -7,4 +14,9 @@
   .grid-item {
     background-color: #f1c5c5; /* Adjust the background color as needed */
     padding: 10px; /* Adjust the padding as needed */
+    
   }
+
+.box {
+  width:fit-content;
+}
