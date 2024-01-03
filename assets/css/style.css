@@ -40,4 +40,18 @@
     background-color: #f1c5c5; /* Adjust the background color as needed */
     padding: 10px; /* Adjust the padding as needed */
   }
+<<<<<<< HEAD
 >>>>>>> 030e32372322d0cbe727d85febe48ea42bd0f4ef
+=======
+
+  #containResults {
+    width: 150px;
+    height: 150px;
+  }
+  
+  #containResults > .results{
+    object-fit:fill;
+    width: 100%;
+    height: 100%;
+  }
+>>>>>>> d0be54948dd6f9a36f1cf45f1d6e5c5adec5713f

@@ -59,6 +59,7 @@ function init() {
           //data pagination, meta
           console.log(content.data);
           console.log("META", content.meta);
+          let containResults = document.getElementById("containResults");
           let fig = document.createElement("figure");
           let img = document.createElement("img");
           let fc = document.createElement("figcaption");
@@ -69,6 +70,7 @@ function init() {
           fig.appendChild(fc);
           let out = document.querySelector(".results");
           out.insertAdjacentElement("afterbegin", fig);
+          containResults.appendChild(out);
         }
       })
       .catch((err) => {
