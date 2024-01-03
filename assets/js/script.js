@@ -33,7 +33,7 @@ function displayQuotesData(quotesData) {
 
   // Append the quote element to the quotes display
   quotesDisplay.appendChild(quoteElement);
-
+  
   console.log("Quotes displayed:", quotesData);
 }
 // Add event listener to the getQuotes button

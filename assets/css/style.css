@@ -14,6 +14,7 @@
   }
   
   .grid-item {
+<<<<<<< HEAD
     background-color: #f1c5c5; 
     padding: 10px; 
     margin: 20px;
@@ -35,3 +36,8 @@
 #title-placeholder {
   margin: 10%;
 }
+=======
+    background-color: #f1c5c5; /* Adjust the background color as needed */
+    padding: 10px; /* Adjust the padding as needed */
+  }
+>>>>>>> 030e32372322d0cbe727d85febe48ea42bd0f4ef
