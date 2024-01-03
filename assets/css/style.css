@@ -2,7 +2,7 @@
 
 .getQuotes {
   width: fit-content;
-  
+  align-self: center;
 }
 
 .grid-container {
@@ -14,7 +14,9 @@
   .grid-item {
     background-color: #f1c5c5; /* Adjust the background color as needed */
     padding: 10px; /* Adjust the padding as needed */
-    
+    margin: 20px;
+    height: 100px;
+    width: 100px
   }
 
 .box {

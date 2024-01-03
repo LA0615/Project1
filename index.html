@@ -12,10 +12,12 @@
   </head>
   <body>
     <header class="header hero is-info">
-      <button class="button getQuotes">
+      <div class="quotesDisplay hero-body title has-text-centered"></div>
+      <button class="button getQuotes is-info is-light is-rounded">
+        
         Click to Get Your Inspirational Quote!
       </button>
-      <div class="quotesDisplay hero-body title has-text-centered"></div>
+      
     </header>
 
     <div class="tile">
@@ -31,7 +33,7 @@
             class="vision-board-title"
             placeholder="Enter your title here"
           /><br />
-          <button class="button is-info" id="title-button">
+          <button class="button is-info is-small is-rounded" id="title-button">
             Add Your Title</button
           ><br />
           <label for="search-input">Search for a topic:</label><br />
@@ -40,21 +42,21 @@
             class="search-input"
             placeholder="Search..."
           /><br />
-          <button class="button is-info search-button">Search</button>
+          <button class="button is-info search-button is-small is-rounded">Search</button>
         </form>
         <results class="results"></results>
       </div>
 
       <!-- Main vision board -->
-      <div class="vision-board">
+      <div class="vision-board is-align-self-center">
         <div class="subtitle has-text-centered" id="title-placeholder"></div>
-        <div class="grid-container tile">
-          <div class="grid-item">Item 1</div>
-          <div class="grid-item">Item 2</div>
-          <div class="grid-item">Item 3</div>
-          <div class="grid-item">Item 4</div>
-          <div class="grid-item">Item 5</div>
-          <div class="grid-item">Item 6</div>
+        <div class="grid-container">
+          <div class="grid-item ">Item 1</div>
+          <div class="grid-item ">Item 2</div>
+          <div class="grid-item ">Item 3</div>
+          <div class="grid-item ">Item 4</div>
+          <div class="grid-item ">Item 5</div>
+          <div class="grid-item ">Item 6</div>
         </div>
       </div>
     </div>
