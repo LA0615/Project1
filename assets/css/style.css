@@ -7,16 +7,17 @@
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-    gap: 10px; /* Adjust the gap between grid items as needed */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 10px; 
   }
   
   .grid-item {
-    background-color: #f1c5c5; /* Adjust the background color as needed */
-    padding: 10px; /* Adjust the padding as needed */
+    background-color: #f1c5c5; 
+    padding: 10px; 
     margin: 20px;
     height: 100px;
-    width: 100px
+    width: 100px;
+    
   }
 
 .box {
