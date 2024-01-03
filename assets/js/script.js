@@ -77,6 +77,14 @@ function init() {
   });
 }
 
+function clearSearchResults() {
+  let resultsContainer = document.querySelector(".results");
+  resultsContainer.innerHTML = "";
+};
+
+var clearResults = document.getElementById("clear");
+clearResults.addEventListener("click", clearSearchResults);
+
 
 const titleBtn = document.getElementById("title-button");
 const titlePlaceholder = document.getElementById("title-placeholder");
