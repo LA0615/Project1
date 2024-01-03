@@ -75,3 +75,11 @@ function init() {
       });
   });
 }
+
+function clearSearchResults() {
+  let resultsContainer = document.querySelector(".results");
+  resultsContainer.innerHTML = "";
+};
+
+var clearResults = document.getElementById("clear");
+clearResults.addEventListener("click", clearSearchResults);
