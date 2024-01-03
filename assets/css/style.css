@@ -5,7 +5,9 @@
   align-self: center;
 }
 
-.grid-container {
+
+
+/* .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     gap: 10px; 
@@ -18,8 +20,18 @@
     height: 100px;
     width: 100px;
     
-  }
+  } */
 
-.box {
-  width:fit-content;
+#title-box {
+  width: fit-content;
+}
+
+#board-box {
+  height: 500px;
+  width: 700px;
+  margin: 10%;
+}
+
+#title-placeholder {
+  margin: 10%;
 }
