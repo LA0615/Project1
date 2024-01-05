@@ -65,22 +65,22 @@ function init() {
           img.src = content.data[i].images.downsized.url;
           img.alt = content.data[i].title;
           fig.appendChild(img);
-          fig.setAttribute('id', 'draggable');
+          fig.setAttribute('class', 'draggable');
           let out = document.querySelector(".results");
           out.insertAdjacentElement("afterbegin", fig);
           containResults.appendChild(out);
-        
+          $( function() {
+            $(".draggable").draggable();
+          });
         }
-        $( function() {
-          $("#draggable").draggable();
-        });
-     
+       
       })
       .catch((err) => {
         console.error(err);
       });
+     
   });
-
+  
 }
 
 
