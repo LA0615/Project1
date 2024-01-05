@@ -62,22 +62,27 @@ function init() {
           let containResults = document.getElementById("containResults");
           let fig = document.createElement("figure");
           let img = document.createElement("img");
-          let fc = document.createElement("figcaption");
           img.src = content.data[i].images.downsized.url;
           img.alt = content.data[i].title;
-          fc.textContent = content.data[0].title;
           fig.appendChild(img);
-          fig.appendChild(fc);
+          fig.setAttribute('id', 'draggable');
           let out = document.querySelector(".results");
           out.insertAdjacentElement("afterbegin", fig);
           containResults.appendChild(out);
+        
         }
+        $( function() {
+          $("#draggable").draggable();
+        });
+     
       })
       .catch((err) => {
         console.error(err);
       });
   });
+
 }
+
 
 function clearSearchResults() {
   let resultsContainer = document.querySelector(".results");
