@@ -34,7 +34,24 @@ function displayQuotesData(quotesData) {
   // Append the quote element to the quotes display
   quotesDisplay.appendChild(quoteElement);
 
+<<<<<<< HEAD
+=======
+  // Save the quote to local storage
+  saveQuoteToLocalStorage(selectedQuote.text);
+
+>>>>>>> 8366d3918cd319bf13f3e5d367790cec859c32b6
   console.log("Quotes displayed:", quotesData);
+}
+// Function to save a quote to local storage
+function saveQuoteToLocalStorage(quote) {
+  // Check if there is an existing quote history in local storage
+  const existingQuotes = JSON.parse(localStorage.getItem("quoteHistory")) || [];
+
+  // Add the new quote to the array
+  existingQuotes.push(quote);
+
+  // Save the updated quote history to local storage
+  localStorage.setItem("quoteHistory", JSON.stringify(existingQuotes));
 }
 // Add event listener to the getQuotes button
 let getQuotesButton = document.querySelector(".getQuotes");

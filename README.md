@@ -27,8 +27,8 @@ Check out the live version of the application [here]().
 ## Credits
 
 The following individuals collaborated on this group project:
-Anne-Michele Maher
-Devin Belle 
+Anne-Michele Maher, 
+Devin Belle, 
 Lea Arcidiacono
 
 Third Party API'S used: [Inspirational Quotes](https://type.fit/api/quotes).
