@@ -6,23 +6,6 @@
 }
 
 
-
-/* .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 10px; 
-  }
-  
-  .grid-item {
-<<<<<<< HEAD
-    background-color: #f1c5c5; 
-    padding: 10px; 
-    margin: 20px;
-    height: 100px;
-    width: 100px;
-    
-  } */
-
 #title-box {
   width: fit-content;
 }
@@ -32,6 +15,7 @@
   width: 700px;
   margin: 10%;
 }
+
 
 #title-placeholder {
   margin: 10%;
