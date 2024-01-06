@@ -34,12 +34,9 @@ function displayQuotesData(quotesData) {
   // Append the quote element to the quotes display
   quotesDisplay.appendChild(quoteElement);
 
-<<<<<<< HEAD
-=======
   // Save the quote to local storage
   saveQuoteToLocalStorage(selectedQuote.text);
 
->>>>>>> 8366d3918cd319bf13f3e5d367790cec859c32b6
   console.log("Quotes displayed:", quotesData);
 }
 // Function to save a quote to local storage
@@ -86,19 +83,41 @@ function init() {
           let out = document.querySelector(".results");
           out.insertAdjacentElement("afterbegin", fig);
           containResults.appendChild(out);
+
+          // Draggable and droppable function
           $(function () {
-            $(".draggable").draggable();
-            $("#board-box").droppable({
+            const visionBoard = document.getElementById("board-box");
+
+            $(".draggable").draggable({
+              // revert: 'invalid',
+              cursor: "move",
+            });
+            $(visionBoard).droppable({
+              accept: ".draggable",
+              // classes: {
+              //   "ui-droppable-active": "ui-state-highlight",
+              // },
               drop: function (event, ui) {
-                const droppedElement = ui.draggable;
-                console.log(droppedElement)
-                droppedElement.css({
-                  // position: "absolute",
-                  // top: ui.position.top,
-                  // left: ui.position.left
-                });
+                addItem(ui.draggable);
+                // const droppedElement = ui.draggable;
               },
             });
+            function addItem( $item ) {
+              $item.fadeOut(function() {
+                const $list = $( "ul", visionBoard ).length ?
+                  $( "ul", visionBoard ) :
+                  $( "<ul class='draggable'/>" ).appendTo( visionBoard );
+         
+                
+                $item.appendTo( $list ).fadeIn(function() {
+                  $item
+                    .animate({ width: content.data[i].images.downsized.url })
+                    .find( "img" )
+                      .animate({ height: "36px" });
+                });
+              });
+            }
+              
           });
         }
       })
