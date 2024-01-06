@@ -10,10 +10,15 @@
   width: fit-content;
 }
 
-#board-box {
+.randomDiv {
   height: 500px;
   width: 700px;
   margin: 10%;
+}
+#board-box {
+  object-fit: fill;
+  width: 100%;
+  height: 100%;
 }
 
 
