@@ -54,47 +54,119 @@ function saveQuoteToLocalStorage(quote) {
 let getQuotesButton = document.querySelector(".getQuotes");
 getQuotesButton.addEventListener("click", getQuotes);
 
+//Key for the API call
 const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
 
-document.addEventListener("DOMContentLoaded", init);
-function init() {
+//loads content when the stickerSearch function starts
+document.addEventListener("DOMContentLoaded", stickerSearch);
+
+//sticker search function 
+function stickerSearch() {
   var searchBtn = document.querySelector(".search-button");
-  searchBtn.addEventListener("click", (ev) => {
+  //below is the button event linked to the API call
+  searchBtn.addEventListener("click", ev => {
     ev.preventDefault();
+    //API call
     let url = `https://api.giphy.com/v1/stickers/search?api_key=${API_KEY}&limit=6&q=`;
+    //Links API call to the search input class
     let searchInput = document.querySelector(".search-input");
+    //variable for user entered search
     let str = searchInput.value.trim();
     url = url.concat(str);
     console.log(url);
+    //variable for getting items out of local storage
+    var savedItems = JSON.parse(localStorage.getItem("saved-items")) || [];
+    //pushes the search-input value from local staorage
+    savedItems.push(str);
+    //saves user entry into local storage
+    localStorage.setItem("saved-items", JSON.stringify(savedItems));
+    console.log(savedItems);
+    console.log(str);
+    //creates buttons from previous user search entries
+    const userInput = document.createElement("button");
+    //links created button with search input entry
+    userInput.textContent = str;
+    userInput.classList.add("userInput");
+    //adds the buttons to a list element titles previousSearch
+    previousSearch.appendChild(userInput);
+    //function for each button running through an api fetch call to pull stickers again
+    userInput.addEventListener("click", () => {
+      runAPI(userInput.textContent);
+    });
+    //fetch call
     fetch(url)
-      .then((response) => response.json())
-      .then((content) => {
+      .then(response => response.json())
+      .then(content => {
+        //for loop to pull more stickers
         for (var i = 0; i < content.data.length; i++) {
-          //data pagination, meta
           console.log(content.data);
-          console.log("META", content.meta);
+          console.log('META', content.meta);
+          //below are created html elements for the content to be plugged into
           let containResults = document.getElementById("containResults");
-          let fig = document.createElement("figure");
-          let img = document.createElement("img");
+          let fig = document.createElement('figure');
+          let img = document.createElement('img');
           img.src = content.data[i].images.downsized.url;
           img.alt = content.data[i].title;
           fig.appendChild(img);
-          fig.setAttribute('class', 'draggable');
-          let out = document.querySelector(".results");
-          out.insertAdjacentElement("afterbegin", fig);
+          let out = document.querySelector('.results');
+          out.insertAdjacentElement('afterbegin', fig);
           containResults.appendChild(out);
           $( function() {
             $(".draggable").draggable();
           });
         }
-       
       })
-      .catch((err) => {
+      //brings up an error card if fetch call is not working
+      .catch(err => {
         console.error(err);
       });
-     
   });
-  
+  //variable for linking html list with created previously searched buttons
+  const previousSearch = document.querySelector(".previousSearch");
+  //variable for getting items out of the local storage
+  var savedItems = JSON.parse(localStorage.getItem("saved-items")) || [];
+  //linking the local storage saved items with a forEach funtion. Function is for getting user previous earch out of local storage
+  savedItems.forEach(item => {
+    //If statement keeps the created array from generating a button per each item pulled from the API search
+    if (!document.querySelector(`.userInput[data-value="${item}"]`)) {
+      //below are vaiables for created elements that will go under the previousSearch list in html doc.
+      const userInput = document.createElement("button");
+      userInput.textContent = item;
+      userInput.classList.add("userInput");
+      previousSearch.appendChild(userInput);
+      //function linked to the user's previous search for pulling more stickers
+      userInput.addEventListener("click", () => {
+      runAPI(userInput.textContent);
+    });
+    }
+  });
+
+  //second function for pulling the stickers when clicking on a previpus search button.
+  function runAPI(searchQuery) {
+    //fetch call is the same as above except we are plugging in the search query generated from a previosly searched button
+    let url = `https://api.giphy.com/v1/stickers/search?api_key=${API_KEY}&limit=6&q=${searchQuery}`;
+    fetch(url)
+      .then(response => response.json())
+      .then(content => {
+        for (var i = 0; i < content.data.length; i++) {
+          console.log(content.data);
+          console.log('META', content.meta);
+          let containResults = document.getElementById("containResults");
+          let fig = document.createElement('figure');
+          let img = document.createElement('img');
+          img.src = content.data[i].images.downsized.url;
+          img.alt = content.data[i].title;
+          fig.appendChild(img);
+          let out = document.querySelector('.results');
+          out.insertAdjacentElement('afterbegin', fig);
+          containResults.appendChild(out);
+        }
+        console.log(content);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }
 }
 
 
