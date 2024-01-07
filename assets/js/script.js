@@ -87,6 +87,7 @@ function stickerSearch() {
     //links created button with search input entry
     userInput.textContent = str;
     userInput.classList.add("userInput");
+    userInput.setAttribute('class', 'previous-button button is-info is-light is-small is-rounded')
     //adds the buttons to a list element titles previousSearch
     previousSearch.appendChild(userInput);
     //function for each button running through an api fetch call to pull stickers again
@@ -175,6 +176,7 @@ function stickerSearch() {
     if (!document.querySelector(`.userInput[data-value="${item}"]`)) {
       //below are vaiables for created elements that will go under the previousSearch list in html doc.
       const userInput = document.createElement("button");
+      userInput.setAttribute('class', 'previous-button button is-info is-light is-small is-rounded')
       userInput.textContent = item;
       userInput.classList.add("userInput");
       previousSearch.appendChild(userInput);

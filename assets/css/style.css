@@ -21,11 +21,13 @@
   height: 100%;
 }
 
+.previous-button {
+  display: block;
+}
 
 #title-placeholder {
   margin: 10%;
 }
-
 
   #containResults {
     width: 150px;
