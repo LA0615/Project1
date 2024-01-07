@@ -134,6 +134,7 @@ function stickerSearch() {
               },
             });
             function addItem($item) {
+              console.log($item)
               // const $list = $("ul", visionBoard).length
               //   ? $("ul", visionBoard)
               //   : $("<ul class='draggable'/>").appendTo(visionBoard);
@@ -143,21 +144,6 @@ function stickerSearch() {
                 .find("fig")
                 .animate({ height: "36px" });
             }
-
-            // function addItem($item) {
-            //   $item.fadeOut(function () {
-            //     const $list = $("ul", visionBoard).length
-            //       ? $("ul", visionBoard)
-            //       : $("<ul class='draggable'/>").appendTo(visionBoard);
-
-            //     $item.appendTo($list).fadeIn(function () {
-            //       $item
-            //         .animate({ width: content.data[i].images.downsized.url })
-            //         .find("img")
-            //         .animate({ height: "36px" });
-            //     });
-            //   });
-            // }
           });
         }
       })

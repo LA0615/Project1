@@ -1,4 +1,6 @@
-
+.tile {
+  justify-content: space-around;
+}
 
 .getQuotes {
   width: fit-content;
@@ -8,17 +10,14 @@
 
 #title-box {
   width: fit-content;
+ 
 }
 
-.randomDiv {
+
+#board-box {
   height: 500px;
   width: 700px;
-  margin: 10%;
-}
-#board-box {
-  object-fit: fill;
-  width: 100%;
-  height: 100%;
+  /* margin: 10%; */
 }
 
 .previous-button {
