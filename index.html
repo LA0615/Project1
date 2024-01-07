@@ -8,7 +8,7 @@
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-   
+
     <title>My Vision Board</title>
   </head>
   <body>
@@ -45,9 +45,7 @@
             Search
           </button>
         </form>
-        <ul class="previousSearch">
-
-        </ul>
+        <ul class="previousSearch"></ul>
         <button class="button is-info is-small is-rounded" id="clear">
           Clear
         </button>
@@ -62,16 +60,18 @@
           class="subtitle has-text-centered is-uppercase"
           id="title-placeholder"
         ></div>
-        <section
-          class="droppable box has-background-link-light"
-          id="board-box"
-        ></section>
+        <div class="randomDiv">
+          <section
+            class="box has-background-link-light"
+            id="board-box"
+          ></section>
+        </div>
       </div>
     </div>
 
     <script src="./assets/js/script.js"></script>
-   
+
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   </body>
 </html>

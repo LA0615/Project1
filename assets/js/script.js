@@ -60,11 +60,11 @@ const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
 //loads content when the stickerSearch function starts
 document.addEventListener("DOMContentLoaded", stickerSearch);
 
-//sticker search function 
+//sticker search function
 function stickerSearch() {
   var searchBtn = document.querySelector(".search-button");
   //below is the button event linked to the API call
-  searchBtn.addEventListener("click", ev => {
+  searchBtn.addEventListener("click", (ev) => {
     ev.preventDefault();
     //API call
     let url = `https://api.giphy.com/v1/stickers/search?api_key=${API_KEY}&limit=6&q=`;
@@ -95,29 +95,73 @@ function stickerSearch() {
     });
     //fetch call
     fetch(url)
-      .then(response => response.json())
-      .then(content => {
+      .then((response) => response.json())
+      .then((content) => {
         //for loop to pull more stickers
         for (var i = 0; i < content.data.length; i++) {
           console.log(content.data);
-          console.log('META', content.meta);
+          console.log("META", content.meta);
           //below are created html elements for the content to be plugged into
           let containResults = document.getElementById("containResults");
-          let fig = document.createElement('figure');
-          let img = document.createElement('img');
+          let fig = document.createElement("figure");
+          let img = document.createElement("img");
           img.src = content.data[i].images.downsized.url;
           img.alt = content.data[i].title;
           fig.appendChild(img);
-          let out = document.querySelector('.results');
-          out.insertAdjacentElement('afterbegin', fig);
+          fig.setAttribute("class", "draggable");
+          let out = document.querySelector(".results");
+          out.insertAdjacentElement("afterbegin", fig);
           containResults.appendChild(out);
-          $( function() {
-            $(".draggable").draggable();
+
+          // Draggable and droppable function
+          $(function () {
+            const visionBoard = document.getElementById("board-box");
+
+            $(".draggable").draggable({
+              revert: 'invalid',
+              cursor: "move",
+            });
+            $(visionBoard).droppable({
+              accept: ".draggable",
+              classes: {
+                "ui-droppable-active": "ui-state-highlight",
+              },
+              drop: function (event, ui) {
+                // visionBoard.appendChild(ui.draggable);
+                addItem(ui.draggable);
+             
+              },
+            });
+            function addItem($item) {
+              // const $list = $("ul", visionBoard).length
+              //   ? $("ul", visionBoard)
+              //   : $("<ul class='draggable'/>").appendTo(visionBoard);
+              $item
+                .appendTo(visionBoard)
+                .animate({ width: "150px" })
+                .find("fig")
+                .animate({ height: "36px" });
+            }
+
+            // function addItem($item) {
+            //   $item.fadeOut(function () {
+            //     const $list = $("ul", visionBoard).length
+            //       ? $("ul", visionBoard)
+            //       : $("<ul class='draggable'/>").appendTo(visionBoard);
+
+            //     $item.appendTo($list).fadeIn(function () {
+            //       $item
+            //         .animate({ width: content.data[i].images.downsized.url })
+            //         .find("img")
+            //         .animate({ height: "36px" });
+            //     });
+            //   });
+            // }
           });
         }
       })
       //brings up an error card if fetch call is not working
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   });
@@ -126,7 +170,7 @@ function stickerSearch() {
   //variable for getting items out of the local storage
   var savedItems = JSON.parse(localStorage.getItem("saved-items")) || [];
   //linking the local storage saved items with a forEach funtion. Function is for getting user previous earch out of local storage
-  savedItems.forEach(item => {
+  savedItems.forEach((item) => {
     //If statement keeps the created array from generating a button per each item pulled from the API search
     if (!document.querySelector(`.userInput[data-value="${item}"]`)) {
       //below are vaiables for created elements that will go under the previousSearch list in html doc.
@@ -136,8 +180,8 @@ function stickerSearch() {
       previousSearch.appendChild(userInput);
       //function linked to the user's previous search for pulling more stickers
       userInput.addEventListener("click", () => {
-      runAPI(userInput.textContent);
-    });
+        runAPI(userInput.textContent);
+      });
     }
   });
 
@@ -146,29 +190,28 @@ function stickerSearch() {
     //fetch call is the same as above except we are plugging in the search query generated from a previosly searched button
     let url = `https://api.giphy.com/v1/stickers/search?api_key=${API_KEY}&limit=6&q=${searchQuery}`;
     fetch(url)
-      .then(response => response.json())
-      .then(content => {
+      .then((response) => response.json())
+      .then((content) => {
         for (var i = 0; i < content.data.length; i++) {
           console.log(content.data);
-          console.log('META', content.meta);
+          console.log("META", content.meta);
           let containResults = document.getElementById("containResults");
-          let fig = document.createElement('figure');
-          let img = document.createElement('img');
+          let fig = document.createElement("figure");
+          let img = document.createElement("img");
           img.src = content.data[i].images.downsized.url;
           img.alt = content.data[i].title;
           fig.appendChild(img);
-          let out = document.querySelector('.results');
-          out.insertAdjacentElement('afterbegin', fig);
+          let out = document.querySelector(".results");
+          out.insertAdjacentElement("afterbegin", fig);
           containResults.appendChild(out);
         }
         console.log(content);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error(err);
       });
   }
 }
-
 
 function clearSearchResults() {
   let resultsContainer = document.querySelector(".results");
