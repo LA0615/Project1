@@ -15,9 +15,7 @@ N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
-
-![alt text](assets/images/screenshot.png)
+![Vision Boaard](<assets/images/Vision Boaard.png>)
 
 ## Deployed Application
 
