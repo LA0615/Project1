@@ -87,6 +87,7 @@ function stickerSearch() {
     //links created button with search input entry
     userInput.textContent = str;
     userInput.classList.add("userInput");
+    userInput.setAttribute('class', 'previous-button button is-info is-light is-small is-rounded')
     //adds the buttons to a list element titles previousSearch
     previousSearch.appendChild(userInput);
     //function for each button running through an api fetch call to pull stickers again
@@ -127,36 +128,27 @@ function stickerSearch() {
                 "ui-droppable-active": "ui-state-highlight",
               },
               drop: function (event, ui) {
-                // visionBoard.appendChild(ui.draggable);
+                // ui.helper.appendTo(visionBoard);
                 addItem(ui.draggable);
              
               },
             });
-            function addItem($item) {
-              // const $list = $("ul", visionBoard).length
-              //   ? $("ul", visionBoard)
-              //   : $("<ul class='draggable'/>").appendTo(visionBoard);
+            function addItem($item, ui) {
+              console.log($item)
+              
               $item
                 .appendTo(visionBoard)
+              
+                // css({
+                //   position: 'relative',
+                //   left: adjustedLeft - boardBoxOffset.left,
+                //   top: adjustedTop - boardBoxOffset.top,
+                // })
                 .animate({ width: "150px" })
                 .find("fig")
-                .animate({ height: "36px" });
+                .animate({ height: "36px" })
+               console.log(visionBoard)
             }
-
-            // function addItem($item) {
-            //   $item.fadeOut(function () {
-            //     const $list = $("ul", visionBoard).length
-            //       ? $("ul", visionBoard)
-            //       : $("<ul class='draggable'/>").appendTo(visionBoard);
-
-            //     $item.appendTo($list).fadeIn(function () {
-            //       $item
-            //         .animate({ width: content.data[i].images.downsized.url })
-            //         .find("img")
-            //         .animate({ height: "36px" });
-            //     });
-            //   });
-            // }
           });
         }
       })
@@ -175,6 +167,7 @@ function stickerSearch() {
     if (!document.querySelector(`.userInput[data-value="${item}"]`)) {
       //below are vaiables for created elements that will go under the previousSearch list in html doc.
       const userInput = document.createElement("button");
+      userInput.setAttribute('class', 'previous-button button is-info is-light is-small is-rounded')
       userInput.textContent = item;
       userInput.classList.add("userInput");
       previousSearch.appendChild(userInput);
