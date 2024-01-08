@@ -13,11 +13,14 @@
  
 }
 
+/* .draggable {
+  position: relative;
+} */
 
 #board-box {
   height: 500px;
   width: 700px;
-  /* margin: 10%; */
+  
 }
 
 .previous-button {

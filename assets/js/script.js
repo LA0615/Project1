@@ -128,21 +128,26 @@ function stickerSearch() {
                 "ui-droppable-active": "ui-state-highlight",
               },
               drop: function (event, ui) {
-                // visionBoard.appendChild(ui.draggable);
+                // ui.helper.appendTo(visionBoard);
                 addItem(ui.draggable);
              
               },
             });
-            function addItem($item) {
+            function addItem($item, ui) {
               console.log($item)
-              // const $list = $("ul", visionBoard).length
-              //   ? $("ul", visionBoard)
-              //   : $("<ul class='draggable'/>").appendTo(visionBoard);
+              
               $item
                 .appendTo(visionBoard)
+              
+                // css({
+                //   position: 'relative',
+                //   left: adjustedLeft - boardBoxOffset.left,
+                //   top: adjustedTop - boardBoxOffset.top,
+                // })
                 .animate({ width: "150px" })
                 .find("fig")
-                .animate({ height: "36px" });
+                .animate({ height: "36px" })
+               console.log(visionBoard)
             }
           });
         }
