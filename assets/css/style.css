@@ -7,7 +7,6 @@
   align-self: center;
 }
 
-
 #title-box {
   width: fit-content;
  
@@ -15,7 +14,7 @@
 
 
 #board-box {
-  height: 500px;
+  min-height: 500px;
   width: 700px;
   
 }
@@ -25,7 +24,8 @@
 }
 
 #title-placeholder {
-  margin: 10%;
+  margin: 5%;
+  
 }
 
   #containResults {

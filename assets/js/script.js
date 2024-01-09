@@ -60,6 +60,52 @@ const API_KEY = "bYHHxHBU513WV5IZp3wKNSVkKBwhu8qx";
 //loads content when the stickerSearch function starts
 document.addEventListener("DOMContentLoaded", stickerSearch);
 
+// function that runs a for loop for the gif data
+function handleStickerData(content) {
+  for (var i = 0; i < content.data.length; i++) {
+    console.log(content.data);
+    console.log("META", content.meta);
+    let containResults = document.getElementById("containResults");
+    let img = document.createElement("img");
+    img.src = content.data[i].images.downsized.url;
+    img.alt = content.data[i].title;
+    img.setAttribute("class", "draggable");
+    let out = document.querySelector(".results");
+    out.insertAdjacentElement("afterbegin", img);
+    containResults.appendChild(out);
+  }
+
+  $(function () {
+    const visionBoard = $("#board-box");
+    $(".draggable").draggable({
+      revert: "invalid",
+      cursor: "move",
+    });
+
+    visionBoard.droppable({
+      accept: ".draggable",
+      classes: {
+        "ui-droppable-active": "ui-state-highlight",
+      },
+      drop: function (event, ui) {
+        addItem(ui.draggable);
+      },
+    });
+
+    function addItem($item, ui) {
+      $item.fadeOut(() => {
+        var $list = $("ul", visionBoard).length
+          ? $("ul", visionBoard)
+          : $("<ul class=' ui-helper-reset'/>").appendTo(visionBoard);
+
+        $item.appendTo($list).fadeIn(function () {
+          $item.css({ position: "static" }).css({ height: "100px" });
+        });
+      });
+    }
+  });
+}
+
 //sticker search function
 function stickerSearch() {
   var searchBtn = document.querySelector(".search-button");
@@ -101,50 +147,7 @@ function stickerSearch() {
     fetch(url)
       .then((response) => response.json())
       .then((content) => {
-        //for loop to pull more stickers
-        for (var i = 0; i < content.data.length; i++) {
-          console.log(content.data);
-          console.log("META", content.meta);
-          //below are created html elements for the content to be plugged into
-          let containResults = document.getElementById("containResults");
-          let fig = document.createElement("figure");
-          let img = document.createElement("img");
-          img.src = content.data[i].images.downsized.url;
-          img.alt = content.data[i].title;
-          fig.appendChild(img);
-          fig.setAttribute("class", "draggable");
-          let out = document.querySelector(".results");
-          out.insertAdjacentElement("afterbegin", fig);
-          containResults.appendChild(out);
-
-          // Draggable and droppable function
-          $(function () {
-            const visionBoard = document.getElementById("board-box");
-
-            $(".draggable").draggable({
-              revert: "invalid",
-              cursor: "move",
-            });
-            $(visionBoard).droppable({
-              accept: ".draggable",
-              classes: {
-                "ui-droppable-active": "ui-state-highlight",
-              },
-              drop: function (event, ui) {
-                addItem(ui.draggable);
-              },
-            });
-            function addItem($item, ui) {
-              console.log($item);
-              $item
-                .appendTo(visionBoard)
-                .animate({ width: "150px" })
-                .find("fig")
-                .animate({ height: "36px" });
-              console.log(visionBoard);
-            }
-          });
-        }
+        handleStickerData(content);
       })
       //brings up an error card if fetch call is not working
       .catch((err) => {
@@ -182,50 +185,10 @@ function stickerSearch() {
     fetch(url)
       .then((response) => response.json())
       .then((content) => {
-        for (var i = 0; i < content.data.length; i++) {
-          console.log(content.data);
-          console.log("META", content.meta);
-          let containResults = document.getElementById("containResults");
-          let fig = document.createElement("figure");
-          let img = document.createElement("img");
-          img.src = content.data[i].images.downsized.url;
-          img.alt = content.data[i].title;
-          fig.appendChild(img);
-          fig.setAttribute("class", "draggable");
-          let out = document.querySelector(".results");
-          out.insertAdjacentElement("afterbegin", fig);
-          containResults.appendChild(out);
-          $(function () {
-            const visionBoard = document.getElementById("board-box");
-
-            $(".draggable").draggable({
-              revert: "invalid",
-              cursor: "move",
-            });
-            $(visionBoard).droppable({
-              accept: ".draggable",
-              classes: {
-                "ui-droppable-active": "ui-state-highlight",
-              },
-              drop: function (event, ui) {
-                addItem(ui.draggable);
-              },
-            });
-            function addItem($item, ui) {
-              console.log($item);
-              $item
-                .appendTo(visionBoard)
-                .animate({ width: "150px" })
-                .find("fig")
-                .animate({ height: "36px" });
-              console.log(visionBoard);
-            }
-          });
-        }
-        
+        handleStickerData(content);
         console.log(content);
       })
-      
+
       .catch((err) => {
         console.error(err);
       });
